@@ -5,10 +5,8 @@ from 'react';
 
 import { Auth } from 'aws-amplify';
 
-import { 
-  withAuthenticator, 
-  AmplifySignOut 
-} from '@aws-amplify/ui-react/legacy';
+import { Authenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 
 import Container from './Container';
 
@@ -41,12 +39,20 @@ const Profile = () => {
   return (
     <Container>
       <h1>Profile</h1>
-      <h2>Username: {user.username}</h2>
-      <h3>Email: {user.email}</h3>
-      <h4>Phone: {user.phone_number}</h4>
-      <AmplifySignOut />
+      <Authenticator>
+        {({ signOut, user }) => (
+          <main>
+            <h1>Hello {user.attributes.email}</h1>
+            <button onClick={signOut}>Sign out</button>
+          </main>
+        )}
+      </Authenticator>
     </Container>
   );
 };
 
-export default withAuthenticator(Profile);
+export default Profile;
+
+/* h2>Username: {user.username}</h2>
+      <h3>Email: {user.email}</h3
+      <h4>Phone: {user.phone_number}</h4> */
