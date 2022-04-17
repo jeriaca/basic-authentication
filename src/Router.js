@@ -15,6 +15,7 @@ import Nav from './Nav';
 import Public from './Public';
 import Profile from './Profile';
 import Protected from './Protected';
+import More from './More';
 
 const Router = () => {
 
@@ -60,6 +61,11 @@ const Router = () => {
         />
         <Route 
           element={<Public />}
+        />
+        <Route 
+          exact
+          path="/more"
+          element={<More />}
         />
       </Routes>
     </HashRouter>

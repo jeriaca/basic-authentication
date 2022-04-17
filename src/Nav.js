@@ -4,7 +4,8 @@ import { Menu } from 'antd';
 import { 
     HomeOutlined, 
     ProfileOutlined, 
-    FileProtectOutlined 
+    FileProtectOutlined,
+    HeartOutlined 
 } from '@ant-design/icons';
 
 const Nav = ({ current }) => {
@@ -20,7 +21,7 @@ const Nav = ({ current }) => {
           <Link 
             to={`/`}
           >
-            <HomeOutlined />Home
+            <HomeOutlined /> Home
           </Link>
         </Menu.Item>
         <Menu.Item 
@@ -29,7 +30,7 @@ const Nav = ({ current }) => {
           <Link 
             to='/profile'
           >
-            <ProfileOutlined />Profile
+            <ProfileOutlined /> Profile
           </Link>
         </Menu.Item>
         <Menu.Item 
@@ -38,7 +39,16 @@ const Nav = ({ current }) => {
           <Link 
             to='/protected'
           >
-            <FileProtectOutlined />Protected
+            <FileProtectOutlined /> Protected
+          </Link>
+        </Menu.Item>
+        <Menu.Item 
+          key='more'
+        >
+          <Link 
+            to='/more'
+          >
+            <HeartOutlined /> More Public
           </Link>
         </Menu.Item>
       </Menu>
