@@ -13,17 +13,18 @@ const Protected = () => {
 
   const nav = useNavigate();
 
+  const redirectUser = async () => {
+    try {
+      await Auth.currentAuthenticatedUser();
+    }
+    catch (err) {
+      nav('/profile');
+    }
+  };
+
   useEffect(
     () => {
-      //Check if user is signed in and, if so, 
-      //return data about the signed-in user
-      Auth.currentAuthenticatedUser()
-        //If user is not signed in, redirect to Profile page
-        .catch(
-          () => {
-            nav('/profile')
-          }
-        );
+      redirectUser();
     }
     , []
   );
