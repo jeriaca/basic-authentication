@@ -10,6 +10,8 @@ import '@aws-amplify/ui-react/styles.css';
 
 import Container from './Container';
 
+import { Button } from 'antd';
+
 const Profile = () => {
   useEffect(
     () => {
@@ -43,7 +45,13 @@ const Profile = () => {
         {({ signOut, user }) => (
           <main>
             <h1>Hello {user.attributes.email}</h1>
-            <button onClick={signOut}>Sign out</button>
+            <Button
+              onClick={signOut}
+              type='primary'
+              size='large'
+            >
+              Sign out
+            </Button> 
           </main>
         )}
       </Authenticator>
