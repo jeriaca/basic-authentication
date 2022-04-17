@@ -7,7 +7,11 @@ import { Auth } from 'aws-amplify';
 
 import Container from './Container';
 
-const Protected = ({ history }) => {
+import { useNavigate } from 'react-router-dom';
+
+const Protected = () => {
+
+  const nav = useNavigate();
 
   useEffect(
     () => {
@@ -17,7 +21,7 @@ const Protected = ({ history }) => {
         //If user is not signed in, redirect to Profile page
         .catch(
           () => {
-            history.push('/profile')
+            nav('/profile')
           }
         );
     }
